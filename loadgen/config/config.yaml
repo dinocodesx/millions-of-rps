@@ -1,0 +1,18 @@
+target_url: "http://localhost:8080/api/endpoint"
+method: "GET"
+duration: "60s"
+rps: 1000000 # target requests per second (1M - 100M)
+nodes: 1 # number of distributed worker machines
+workers_per_node: 500 # goroutines per worker node
+connections: 2000 # persistent connections per worker node
+payload: "" # base64-encoded body (leave empty for GET)
+headers:
+  Content-Type: "application/json"
+  X-Load-Test: "true"
+output_format: "text" # text | json | csv
+output_file: "" # leave empty for stdout only
+report_interval: "5s" # live stats print interval
+coordinator_addr: "0.0.0.0:9000"
+worker_addrs:
+  - "worker1:9001"
+  - "worker2:9001"
